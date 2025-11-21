@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Food - Smart Food Connect</title>
+
+    <style>
+        body {
+            background: #f7f7ff;
+            font-family: Arial, sans-serif;
+        }
+
+        .form-wrapper {
+            max-width: 650px;
+            margin: 40px auto;
+            background: white;
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #6a0aca;
+            font-size: 30px;
+            margin-bottom: 25px;
+        }
+
+        .input-label {
+            font-weight: bold;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #333;
+        }
+
+        .icon {
+            width: 20px;
+            opacity: 0.75;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            margin-bottom: 18px;
+            font-size: 15px;
+        }
+
+        .checkbox-list {
+            margin-bottom: 20px;
+            line-height: 30px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            background: #6a0aca;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #5408a5;
+        }
+
+        .back-link {
+            padding: 20px;
+            font-size: 18px;
+        }
+
+        .back-link a {
+            text-decoration: none;
+            color: #333;
+        }
+    </style>
+</head>
+<script>
+function submitRequest() {
+    const name = document.querySelector('input[placeholder="Enter your name"]').value.trim();
+    const phone = document.querySelector('input[placeholder="Enter phone number"]').value.trim();
+    const people = document.querySelector('input[placeholder="Enter number"]').value.trim();
+    const location = document.querySelector('input[placeholder="Enter address"]').value.trim();
+    const foodType = document.querySelectorAll("select")[0].value;
+    const urgency = document.querySelectorAll("select")[1].value;
+
+    const checks = document.querySelectorAll(".checkbox-list input[type='checkbox']");
+    let allChecked = true;
+
+    checks.forEach(c => {
+        if (!c.checked) {
+            allChecked = false;
+        }
+    });
+
+    if (!name || !phone || !people || !location ||
+        foodType === "Select Food Type" ||
+        urgency === "Select urgency" ||
+        !allChecked) {
+
+        alert("❗ Please fill ALL fields and check ALL safety information boxes before submitting.");
+        return;
+    }
+
+    alert("🎉 Food Request Submitted Successfully!");
+}
+</script>
+
+
+<body>
+
+    <div class="back-link">
+        <a href="index.html">← Back to Home</a>
+    </div>
+
+    <div class="form-wrapper">
+        <h2>Request Food</h2>
+
+        <label class="input-label">
+            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" class="icon">
+            Your Name / Organization
+        </label>
+        <input type="text" placeholder="Enter your name">
+
+        <label class="input-label">
+            <img src="https://cdn-icons-png.flaticon.com/512/159/159832.png" class="icon">
+            Contact Number
+        </label>
+        <input type="text" placeholder="Enter phone number">
+
+        <label class="input-label">
+            <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" class="icon">
+            Preferred Food Type
+        </label>
+        <select>
+            <option>Select Food Type</option>
+            <option>Cooked Food</option>
+            <option>Raw Food</option>
+            <option>Bread / Bakery Items</option>
+        </select>
+        <style> .form-wrapper {
+    background: 
+        linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.9)),
+        url("https://images.unsplash.com/photo-1504674900247-0877df9cc836");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+</style>
+
+        <label class="input-label">
+            <img src="https://cdn-icons-png.flaticon.com/512/929/929430.png" class="icon">
+            Number of People
+        </label>
+        <input type="text" placeholder="Enter number">
+
+        <label class="input-label">
+            <img src="https://cdn-icons-png.flaticon.com/512/689/689476.png" class="icon">
+            Your Location
+        </label>
+        <input type="text" placeholder="Enter address">
+
+        <label class="input-label">
+            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828970.png" class="icon">
+            Urgency Level
+        </label>
+        <select>
+            <option>Select urgency</option>
+            <option>Low</option>
+            <option>Medium</option>
+            <option>High</option>
+        </select>
+
+        <h3>Safety Agreement</h3>
+
+        <div class="checkbox-list">
+            <input type="checkbox"> Will check food before accepting<br>
+            <input type="checkbox"> Food will be used immediately<br>
+            <input type="checkbox"> Understands donation process<br>
+            <input type="checkbox"> Will handle food safely<br>
+        </div>
+
+        <button onclick="submitRequest()">Submit Request</button>
+    </div>
+
+    <script>
+    function submitRequest() {
+        alert("🎉 Food Request Submitted Successfully!");
+    }
+    </script>
+
+</body>
+</html>

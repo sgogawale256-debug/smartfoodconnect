@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate Food - Smart Food Connect</title>
+
+    <style>
+        body {
+            background: #f7f7ff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .form-wrapper {
+            max-width: 650px;
+            margin: 40px auto;
+            background: white;
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #6a0aca;
+            font-size: 30px;
+            margin-bottom: 25px;
+        }
+
+        .input-label {
+            font-weight: bold;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #333;
+        }
+
+        .icon {
+            width: 20px;
+            opacity: 0.75;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            margin-bottom: 18px;
+            font-size: 15px;
+        }
+
+        .checkbox-list {
+            margin-bottom: 20px;
+            line-height: 30px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            background: #6a0aca;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #5408a5;
+        }
+
+        .back-link {
+            padding: 20px;
+            font-size: 18px;
+        }
+
+        .back-link a {
+            text-decoration: none;
+            color: #333;
+        }
+    </style>
+</head>
+<script>
+function submitDonate() {
+    const name = document.querySelector('input[placeholder="Enter your name"]').value.trim();
+    const phone = document.querySelector('input[placeholder="Enter phone number"]').value.trim();
+    const quantity = document.querySelector('input[placeholder="Enter quantity"]').value.trim();
+    const location = document.querySelector('input[placeholder="Enter location"]').value.trim();
+    const time = document.querySelector('input[placeholder="Example: 4 PM – 7 PM"]').value.trim();
+    const foodType = document.querySelector("select").value;
+
+    const checks = document.querySelectorAll(".checkbox-list input[type='checkbox']");
+    let allChecked = true;
+
+    checks.forEach(c => {
+        if (!c.checked) {
+            allChecked = false;
+        }
+    });
+
+    if (!name || !phone || !quantity || !location || !time || foodType === "Select food type" || !allChecked) {
+        alert("❗ Please fill ALL fields and check ALL safety checkboxes before submitting.");
+        return;
+    }
+
+    alert("🎉 Donation Submitted Successfully!");
+}
+</script>
+
+
+
+       
+
+<body>
+
+    <div class="back-link">
+        <a href="index.html">← Back to Home</a>
+    </div>
+
+    <div class="form-wrapper">
+        <h2>Donate Food</h2>
+
+        <label class="input-label">
+            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" class="icon">
+            Your Name / Organization
+        </label>
+        <input type="text" placeholder="Enter your name">
+
+        <label class="input-label">
+            <img src="https://cdn-icons-png.flaticon.com/512/159/159832.png" class="icon">
+            Contact Number
+        </label>
+        <input type="text" placeholder="Enter phone number">
+
+        <label class="input-label">
+            <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" class="icon">
+            Type of Food
+        </label>
+        <select>
+            <option>Select food type</option>
+            <option>Cooked Food</option>
+            <option>Raw Food</option>
+            <option>Baked Items</option>
+            <option>Vegetables</option>
+        </select>
+        <style> .form-wrapper {
+    background: 
+        linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.9)),
+        url("https://images.unsplash.com/photo-1504674900247-0877df9cc836");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+</style>
+        
+        <label class="input-label">
+            <img src="https://cdn-icons-png.flaticon.com/512/810/810106.png" class="icon">
+            Approximate Quantity
+        </label>
+        <input type="text" placeholder="Enter quantity">
+
+        <label class="input-label">
+            <img src="https://cdn-icons-png.flaticon.com/512/689/689476.png" class="icon">
+            Pickup Location
+        </label>
+        <input type="text" placeholder="Enter location">
+
+        <label class="input-label">
+            <img src="https://cdn-icons-png.flaticon.com/512/159/159613.png" class="icon">
+            Available Pickup Time
+        </label>
+        <input type="text" placeholder="Example: 4 PM – 7 PM">
+
+        <h3>Safety Precautions</h3>
+
+        <div class="checkbox-list">
+            <input type="checkbox"> Food is fresh and safe<br>
+            <input type="checkbox"> Properly packed<br>
+            <input type="checkbox"> Not expired<br>
+            <input type="checkbox"> Hygienically handled<br>
+        </div>
+
+        <button onclick="submitDonate()">Submit Donation</button>
+    </div>
+
+    <script>
+    function submitDonate() {
+        alert("🎉 Donation Submitted Successfully!");
+    }
+    </script>
+
+</body>
+</html>
